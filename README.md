@@ -12,10 +12,10 @@ This is purely Polkadot crosschain magic in action!
 Assuming you have `npm` installed, use the following commands to run the website locally at `http://localhost:8080/` 
 
 ```
-npm i vite
+npm install @polkadot/api
 ```
 ```
-npm run build
+npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin
 ```
 ```
 npm run start
