@@ -121,7 +121,7 @@ export function AccountReplicationForm() {
     <Card className="w-full max-w-2xl bg-white rounded-lg shadow-md">
       <CardContent className="p-6 md:p-8">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-800">Polkadot Account Replication Tool</h1>
+          <h1 className="text-2xl font-semibold text-gray-800">Proxy Account Replication Tool</h1>
           <p className="text-gray-500 text-sm mt-1">Enter account details to generate a proxy call</p>
         </div>
 
