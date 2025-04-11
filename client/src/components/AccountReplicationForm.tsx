@@ -45,18 +45,19 @@ export function AccountReplicationForm() {
     },
   });
 
-  // Set up mutation for API request
+  // Set up mutation for GitHub Pages static version (no backend API)
   const mutation = useMutation({
     mutationFn: async (data: FormValues) => {
-      // First store the request in our database
-      const response = await apiRequest("POST", "/api/replicate", data);
-      return response.json();
+      // In static GitHub Pages deployment, we skip the server API call
+      // and just return the data directly
+      return data;
     },
     onSuccess: async (data, variables) => {
-      // Show success toast and state
+      // Skip the "saved to database" message since there's no backend
+      // Just show we're generating the proxy call
       toast({
-        title: "Transaction construction request saved",
-        description: "Transaction construction request has been saved. Now generating the Polkadot proxy call...",
+        title: "Processing request",
+        description: "Generating the Polkadot proxy call...",
       });
       
       // Process the Polkadot proxy call
@@ -121,8 +122,8 @@ export function AccountReplicationForm() {
     <Card className="w-full max-w-2xl bg-white rounded-lg shadow-md">
       <CardContent className="p-6 md:p-8">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-800">Remote Proxy Transaction Tool</h1>
-          <p className="text-gray-500 text-sm mt-1">Enter account details to generate a proxy call (works for Kusama Asset Hub)</p>
+          <h1 className="text-2xl font-semibold text-gray-800">Remode Proxy Transaction Tool</h1>
+          <p className="text-gray-500 text-sm mt-1">Enter account details to generate a proxy call</p>
         </div>
 
         <Form {...form}>
