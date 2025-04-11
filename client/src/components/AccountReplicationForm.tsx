@@ -55,8 +55,8 @@ export function AccountReplicationForm() {
     onSuccess: async (data, variables) => {
       // Show success toast and state
       toast({
-        title: "Replication request saved",
-        description: "Your replication request has been saved. Now generating the Polkadot proxy call...",
+        title: "Transaction construction request saved",
+        description: "Transaction construction request has been saved. Now generating the Polkadot proxy call...",
       });
       
       // Process the Polkadot proxy call
@@ -121,8 +121,8 @@ export function AccountReplicationForm() {
     <Card className="w-full max-w-2xl bg-white rounded-lg shadow-md">
       <CardContent className="p-6 md:p-8">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-800">Proxy Account Replication Tool</h1>
-          <p className="text-gray-500 text-sm mt-1">Enter account details to generate a proxy call</p>
+          <h1 className="text-2xl font-semibold text-gray-800">Remote Proxy Transaction Tool</h1>
+          <p className="text-gray-500 text-sm mt-1">Enter account details to generate a proxy call (works for Kusama Asset Hub)</p>
         </div>
 
         <Form {...form}>
