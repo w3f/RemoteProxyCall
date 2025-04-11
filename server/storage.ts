@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { users, replicationRequests, type User, type InsertUser, type ReplicationRequest, type InsertReplicationRequest } from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -7,15 +7,21 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  createReplicationRequest(request: InsertReplicationRequest): Promise<ReplicationRequest>;
+  getReplicationRequests(): Promise<ReplicationRequest[]>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
-  currentId: number;
+  private replicationRequests: Map<number, ReplicationRequest>;
+  userCurrentId: number;
+  requestCurrentId: number;
 
   constructor() {
     this.users = new Map();
-    this.currentId = 1;
+    this.replicationRequests = new Map();
+    this.userCurrentId = 1;
+    this.requestCurrentId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -29,10 +35,21 @@ export class MemStorage implements IStorage {
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentId++;
+    const id = this.userCurrentId++;
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+
+  async createReplicationRequest(insertRequest: InsertReplicationRequest): Promise<ReplicationRequest> {
+    const id = this.requestCurrentId++;
+    const request: ReplicationRequest = { ...insertRequest, id };
+    this.replicationRequests.set(id, request);
+    return request;
+  }
+
+  async getReplicationRequests(): Promise<ReplicationRequest[]> {
+    return Array.from(this.replicationRequests.values());
   }
 }
 
