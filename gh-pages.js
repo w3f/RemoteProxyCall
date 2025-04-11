@@ -12,7 +12,7 @@ console.log("GitHub Pages environment configured!");
 console.log("Building static site for deployment...");
 
 // Execute the build command
-require('child_process').execSync('vite build --outDir dist', {
+import('child_process').execSync('vite build --outDir dist', {
   cwd: process.cwd(),
   stdio: 'inherit'
 });
