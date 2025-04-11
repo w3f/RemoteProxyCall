@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Remote Proxy Transaction Tool</title><style>body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        h1 {
+            color: #e6007a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #e6007a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #b5005f;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            min-height: 100px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid rgba(230, 0, 122, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #e6007a;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error {
+            color: #e41c1c;
+            background-color: #ffe6e6;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }</style><script defer="defer" src="bundle.js"></script></head><body><div class="container"><h1>Remote Proxy Transaction Tool</h1><div class="error" id="errorMessage"></div><div class="form-group"><label for="yourAccount">Your Account Address:</label> <input id="yourAccount" placeholder="5EjdajLJp5CKhGVaWV21wiyGxUw42rhCqGN32LuVH4wrqXTN"></div><div class="form-group"><label for="proxiedAccount">Proxied Account Address:</label> <input id="proxiedAccount" placeholder="D9o7gYB92kXgr1UTjYWLDwXK5BeJdxR2irjwaoDEhJnNCfp"></div><button id="constructCall">Construct Proxy Call</button><div class="spinner" id="loadingSpinner"></div><div class="result" id="resultOutput">Results will appear here...</div></div></body></html>
